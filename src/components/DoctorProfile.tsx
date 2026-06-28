@@ -16,9 +16,13 @@ export default function DoctorProfile() {
             transition={{ duration: 0.8 }}
             className="relative"
           >
-            <div className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-white/60 p-3 bg-white/40 backdrop-blur-2xl">
+            <motion.div 
+              animate={{ y: [0, -8, 0] }}
+              transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-white/60 p-3 bg-white/40 backdrop-blur-2xl"
+            >
               <img 
-                src="https://images.unsplash.com/photo-1622253692010-333f2da6031d?auto=format&fit=crop&w=1000&q=80" 
+                src="https://i.ibb.co/rGCdxf68/Gemini-Generated-Image-4u5em94u5em94u5e.jpg" 
                 alt="Dr. Siddharth Modi" 
                 className="w-full h-full object-cover rounded-[2.5rem]"
               />
@@ -34,22 +38,26 @@ export default function DoctorProfile() {
                   href="https://www.instagram.com/siddharthgmodi_art?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="
                   target="_blank"
                   rel="noreferrer"
-                  className="w-12 h-12 rounded-full bg-white/20 backdrop-blur-md flex items-center justify-center text-white hover:bg-white hover:text-[#0a5670] transition-colors"
+                  className="w-12 h-12 rounded-full bg-white/30 backdrop-blur-md border border-white/50 flex items-center justify-center text-white hover:bg-white hover:text-[#0a5670] transition-colors"
                 >
                   <Instagram className="w-5 h-5" />
                 </a>
               </div>
-            </div>
+            </motion.div>
 
-            <div className="absolute -bottom-8 -right-8 bg-white/70 backdrop-blur-2xl p-6 rounded-[2rem] shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-white/60 flex items-center gap-4 hidden sm:flex">
-              <div className="w-14 h-14 bg-[#ddebf0] rounded-2xl flex items-center justify-center text-[#0a5670]">
+            <motion.div 
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+              className="absolute -bottom-8 -right-8 bg-white/70 backdrop-blur-2xl p-6 rounded-[2rem] shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-white/60 flex items-center gap-4 hidden sm:flex"
+            >
+              <div className="w-14 h-14 bg-white/80 backdrop-blur-md rounded-2xl flex items-center justify-center text-[#0a5670] border border-white">
                 <Award className="w-6 h-6" />
               </div>
               <div>
                 <p className="text-xl font-bold text-[#0a5670]">10+ Years</p>
                 <p className="text-[#0a5670]/70 text-xs font-bold uppercase tracking-widest">Experience</p>
               </div>
-            </div>
+            </motion.div>
           </motion.div>
 
           <motion.div 

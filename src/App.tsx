@@ -1,23 +1,27 @@
-import React from 'react';
-import Navbar from './components/Navbar';
-import Hero from './components/Hero';
-import Services from './components/Services';
-import DoctorProfile from './components/DoctorProfile';
-import Testimonials from './components/Testimonials';
-import Contact from './components/Contact';
-import Footer from './components/Footer';
+import React, { useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Lenis from 'lenis';
+import Home from './pages/Home';
+import AllServices from './pages/AllServices';
 
 function App() {
+  useEffect(() => {
+    const lenis = new Lenis({
+      autoRaf: true,
+    });
+
+    return () => {
+      lenis.destroy();
+    };
+  }, []);
+
   return (
-    <div className="min-h-screen bg-[#ddebf0] font-sans text-[#0a5670] scroll-smooth">
-      <Navbar />
-      <Hero />
-      <Services />
-      <DoctorProfile />
-      <Testimonials />
-      <Contact />
-      <Footer />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/services" element={<AllServices />} />
+      </Routes>
+    </Router>
   );
 }
 

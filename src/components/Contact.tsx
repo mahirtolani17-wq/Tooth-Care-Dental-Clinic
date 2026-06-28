@@ -23,26 +23,30 @@ export default function Contact() {
         </motion.div>
 
         <div className="grid md:grid-cols-3 gap-8">
-          <motion.div 
+          <motion.a 
+            href="tel:+918460448731"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
-            className="bg-white/40 backdrop-blur-2xl p-8 rounded-[2rem] border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)] flex flex-col items-center text-center hover:bg-white/60 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all"
+            className="bg-white/40 backdrop-blur-2xl p-8 rounded-[2rem] border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)] flex flex-col items-center text-center hover:bg-white/60 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all cursor-pointer"
           >
             <div className="w-16 h-16 bg-white/80 backdrop-blur-md rounded-[1.5rem] flex items-center justify-center text-[#0a5670] shadow-sm border border-white mb-6">
               <Phone className="w-6 h-6" />
             </div>
             <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#0a5670]/70 mb-2">Call Us</h4>
-            <p className="text-lg font-bold text-[#0a5670]">084604 48731</p>
-          </motion.div>
+            <p className="text-lg font-bold text-[#0a5670]">+91 084604 48731</p>
+          </motion.a>
           
-          <motion.div 
+          <motion.a 
+            href="https://maps.app.goo.gl/JUQ3mNkpPinXVmW3A"
+            target="_blank"
+            rel="noreferrer"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="bg-white/40 backdrop-blur-2xl p-8 rounded-[2rem] border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)] flex flex-col items-center text-center hover:bg-white/60 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all"
+            className="bg-white/40 backdrop-blur-2xl p-8 rounded-[2rem] border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)] flex flex-col items-center text-center hover:bg-white/60 hover:shadow-[0_8px_32px_rgba(0,0,0,0.08)] transition-all cursor-pointer"
           >
             <div className="w-16 h-16 bg-white/80 backdrop-blur-md rounded-[1.5rem] flex items-center justify-center text-[#0a5670] shadow-sm border border-white mb-6">
               <MapPin className="w-6 h-6" />
@@ -51,7 +55,7 @@ export default function Contact() {
             <p className="text-sm font-semibold text-[#0a5670] leading-relaxed">
               Silver hub complex, FF-09, 10, Chhani Jakatnaka, Circle, Chhani, Vadodara, Gujarat 390024
             </p>
-          </motion.div>
+          </motion.a>
           
           <motion.div 
             initial={{ opacity: 0, y: 20 }}

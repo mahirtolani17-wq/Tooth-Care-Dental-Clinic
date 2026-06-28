@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Instagram, Facebook } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -12,11 +12,11 @@ export default function Footer() {
               Experience world-class dental care with Dr. Siddharth Modi. Precision, comfort, and transparency in every treatment.
             </p>
             <div className="flex gap-4">
-              <a href="https://www.instagram.com/siddharthgmodi_art?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-[#0a5670] transition-colors">
-                <span className="text-xs font-bold">IG</span>
+              <a href="https://www.instagram.com/toothcaredental_109?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw==" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-[#0a5670] transition-colors">
+                <Instagram className="w-4 h-4" />
               </a>
               <a href="#" className="w-10 h-10 rounded-full border border-white/20 flex items-center justify-center hover:bg-white hover:text-[#0a5670] transition-colors">
-                <span className="text-xs font-bold">FB</span>
+                <Facebook className="w-4 h-4" />
               </a>
             </div>
           </div>

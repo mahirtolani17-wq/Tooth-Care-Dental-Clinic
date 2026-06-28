@@ -56,36 +56,52 @@ export default function Hero() {
           >
             <div className="grid grid-cols-2 gap-4 h-full">
               <div className="space-y-4 pt-8">
-                <div className="bg-white/40 backdrop-blur-xl p-2 rounded-[2rem] border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.06)] aspect-[4/5] overflow-hidden">
+                <motion.div 
+                  animate={{ y: [0, -10, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
+                  className="bg-white/30 backdrop-blur-2xl p-2 rounded-[2rem] border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08)] aspect-[4/5] overflow-hidden"
+                >
                   <img 
                     src="https://i.ibb.co/99cVngLs/unnamed-10.jpg" 
                     alt="Modern Clinic" 
                     className="w-full h-full object-cover rounded-[1.5rem]"
                   />
-                </div>
-                <div className="bg-white/40 backdrop-blur-xl p-2 rounded-[2rem] border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.06)] aspect-square overflow-hidden">
+                </motion.div>
+                <motion.div 
+                  animate={{ y: [0, 10, 0] }}
+                  transition={{ duration: 5, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+                  className="bg-white/30 backdrop-blur-2xl p-2 rounded-[2rem] border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08)] aspect-square overflow-hidden"
+                >
                   <img 
                     src="https://i.ibb.co/tMCMYLF4/unnamed-11.jpg" 
                     alt="Dental Care" 
                     className="w-full h-full object-cover rounded-[1.5rem]"
                   />
-                </div>
+                </motion.div>
               </div>
               <div className="space-y-4">
-                <div className="bg-white/40 backdrop-blur-xl p-2 rounded-[2rem] border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.06)] aspect-square overflow-hidden">
+                <motion.div 
+                  animate={{ y: [0, -15, 0] }}
+                  transition={{ duration: 7, repeat: Infinity, ease: "easeInOut", delay: 0.5 }}
+                  className="bg-white/30 backdrop-blur-2xl p-2 rounded-[2rem] border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08)] aspect-square overflow-hidden"
+                >
                   <img 
                     src="https://i.ibb.co/ccGRrHYT/unnamed-6.jpg" 
                     alt="Reception" 
                     className="w-full h-full object-cover rounded-[1.5rem]"
                   />
-                </div>
-                <div className="bg-white/40 backdrop-blur-xl p-2 rounded-[2rem] border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.06)] aspect-[4/5] overflow-hidden">
+                </motion.div>
+                <motion.div 
+                  animate={{ y: [0, 8, 0] }}
+                  transition={{ duration: 6, repeat: Infinity, ease: "easeInOut", delay: 1.5 }}
+                  className="bg-white/30 backdrop-blur-2xl p-2 rounded-[2rem] border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.08)] aspect-[4/5] overflow-hidden"
+                >
                   <img 
                     src="https://i.ibb.co/W45RKHkD/unnamed-7.jpg" 
                     alt="Technology" 
                     className="w-full h-full object-cover rounded-[1.5rem]"
                   />
-                </div>
+                </motion.div>
               </div>
             </div>
           </motion.div>

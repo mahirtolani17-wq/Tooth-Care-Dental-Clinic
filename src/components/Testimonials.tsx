@@ -39,7 +39,7 @@ export default function Testimonials() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: idx * 0.1 }}
-              className="bg-white/10 backdrop-blur-2xl p-8 rounded-[2rem] border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.15)] relative hover:bg-white/15 transition-colors"
+              className="bg-white/10 backdrop-blur-2xl p-8 rounded-[2rem] border border-white/20 shadow-[0_8px_32px_rgba(0,0,0,0.15)] relative hover:bg-white/20 transition-all duration-300 hover:-translate-y-2 hover:shadow-[0_8px_32px_rgba(0,0,0,0.25)]"
             >
               <Quote className="absolute top-6 right-6 w-8 h-8 text-white/20" />
               <div className="flex gap-1 mb-6">
