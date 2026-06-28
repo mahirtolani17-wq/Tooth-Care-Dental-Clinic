@@ -1,0 +1,6 @@
+{
+  "name": "Tooth Care Dental Clinic",
+  "description": "Professional interactive dental clinic website for Dr. Siddharth Modi.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
