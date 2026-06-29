@@ -67,7 +67,7 @@ export default function Contact() {
               <Clock className="w-6 h-6" />
             </div>
             <h4 className="text-[10px] font-bold uppercase tracking-widest text-[#0a5670]/70 mb-2">Clinic Hours</h4>
-            <p className="text-sm font-semibold text-[#0a5670]">Open &bull; Closes at 8:30 PM</p>
+            <p className="text-sm font-semibold text-[#0a5670]">Monday to Saturday<br/>9:30 AM - 8:30 PM</p>
           </motion.div>
         </div>
       </div>

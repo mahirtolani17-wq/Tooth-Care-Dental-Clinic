@@ -1,51 +1,89 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
-import { ChevronRight, ChevronLeft, Droplets, Sparkles, Stethoscope, Syringe, Zap, SmilePlus, Bluetooth as Tooth, Briefcase, ShieldCheck, Activity, Heart, MousePointerClick } from 'lucide-react';
+import { ChevronRight, ChevronLeft, CheckCircle2 } from 'lucide-react';
 import Footer from '../components/Footer';
 
-const allServices = [
-  { id: 'whitening', name: 'Teeth Whitening', category: 'Cosmetic', icon: Sparkles, desc: 'Professional whitening for a brighter, confident smile.', price: 'Consult for Pricing', duration: '45-60 mins' },
-  { id: 'bonding', name: 'Bonding', category: 'Cosmetic', icon: SmilePlus, desc: 'Repair chipped or cracked teeth seamlessly.', price: 'Consult for Pricing', duration: '30-60 mins' },
-  { id: 'checkups', name: 'Check-ups', category: 'General', icon: Stethoscope, desc: 'Routine examinations to ensure optimal oral health.', price: 'Consult for Pricing', duration: '30 mins' },
-  { id: 'cosmetic-procedures', name: 'Cosmetic Procedures', category: 'Cosmetic', icon: Sparkles, desc: 'Various procedures to enhance the aesthetics of your smile.', price: 'Consult for Pricing', duration: 'Varies' },
-  { id: 'implants', name: 'Dental Implants', category: 'Surgical', icon: Tooth, desc: 'Permanent replacement for missing teeth.', price: 'Consult for Pricing', duration: 'Varies' },
-  { id: 'dentures-bridges', name: 'Dentures & Bridges', category: 'Restorative', icon: Briefcase, desc: 'Custom-fitted solutions for missing teeth.', price: 'Consult for Pricing', duration: 'Multiple visits' },
-  { id: 'emergency', name: 'Emergency Care', category: 'General', icon: Zap, desc: 'Immediate attention for dental emergencies.', price: 'Consult for Pricing', duration: 'Immediate' },
-  { id: 'extractions', name: 'Extractions', category: 'Surgical', icon: Syringe, desc: 'Safe and painless tooth removal.', price: 'Consult for Pricing', duration: '30-45 mins' },
-  { id: 'fillings', name: 'Fillings and Sealants', category: 'General', icon: ShieldCheck, desc: 'Protect and restore teeth from decay.', price: 'Consult for Pricing', duration: '30 mins' },
-  { id: 'laser', name: 'Laser Dentistry', category: 'General', icon: Zap, desc: 'Minimally invasive treatments using advanced lasers.', price: 'Consult for Pricing', duration: 'Varies' },
-  { id: 'mouth-guards', name: 'Mouth Guards', category: 'Preventive', icon: ShieldCheck, desc: 'Custom guards to protect your teeth during sleep or sports.', price: 'Consult for Pricing', duration: 'Varies' },
-  { id: 'online-booking', name: 'Online Dentist Booking', category: 'General', icon: MousePointerClick, desc: 'Easily book your appointments online.', price: 'Free', duration: 'Instant' },
-  { id: 'oral-surgery', name: 'Oral Surgery', category: 'Surgical', icon: Syringe, desc: 'Advanced surgical procedures for complex dental issues.', price: 'Consult for Pricing', duration: 'Varies' },
-  { id: 'paediatrics', name: 'Paediatrics', category: 'General', icon: SmilePlus, desc: 'Gentle, child-friendly dental care.', price: 'Consult for Pricing', duration: '30-45 mins' },
-  { id: 'root-canals', name: 'Root Canals', category: 'Restorative', icon: Droplets, desc: 'Save infected teeth with painless root canal therapy.', price: 'Consult for Pricing', duration: '60-90 mins' },
-  { id: 'cleaning', name: 'Teeth Cleaning', category: 'Preventive', icon: Sparkles, desc: 'Professional cleaning to remove plaque and tartar.', price: 'Consult for Pricing', duration: '30-45 mins' },
-  { id: 'reshaping', name: 'Teeth Reshaping', category: 'Cosmetic', icon: SmilePlus, desc: 'Contour and shape your teeth for a perfect smile.', price: 'Consult for Pricing', duration: '30-60 mins' },
-  { id: 'veneers-crowns', name: 'Veneers & Crowns', category: 'Cosmetic', icon: Sparkles, desc: 'Custom shells/caps to restore tooth appearance and strength.', price: 'Consult for Pricing', duration: 'Multiple visits' },
-  { id: 'xray', name: 'X-Ray', category: 'General', icon: Activity, desc: 'Advanced digital imaging for accurate diagnosis.', price: 'Consult for Pricing', duration: '10 mins' },
-  { id: 'denture-treatment', name: 'Denture Treatment', category: 'Restorative', icon: Briefcase, desc: 'Complete care and fitting for dentures.', price: 'Consult for Pricing', duration: 'Varies' },
-  { id: 'cosmetic-dentistry', name: 'Cosmetic Dentistry', category: 'Cosmetic', icon: Sparkles, desc: 'Comprehensive cosmetic dental solutions.', price: 'Consult for Pricing', duration: 'Varies' },
-  { id: 'braces', name: 'Dental Braces Treatment', category: 'Orthodontic', icon: Tooth, desc: 'Straighten your teeth and correct your bite.', price: 'Consult for Pricing', duration: 'Multiple visits' },
-  { id: 'decayed-teeth', name: 'Decayed Teeth Treatment', category: 'Restorative', icon: Heart, desc: 'Effective treatments to restore decayed teeth.', price: 'Consult for Pricing', duration: 'Varies' },
-  { id: 'bleeding-gum', name: 'Bleeding Gum Treatment', category: 'General', icon: Droplets, desc: 'Specialized care for healthy gums.', price: 'Consult for Pricing', duration: 'Varies' },
-  { id: 'crowns-treatment', name: 'Dental Crowns Treatment', category: 'Restorative', icon: Briefcase, desc: 'High-quality crowns to protect damaged teeth.', price: 'Consult for Pricing', duration: 'Varies' },
-  { id: 'orthodontic', name: 'Orthodontic Treatment', category: 'Orthodontic', icon: Tooth, desc: 'Advanced treatments for misaligned teeth.', price: 'Consult for Pricing', duration: 'Varies' },
-  { id: 'fluoride', name: 'Dental Fluoride Treatment', category: 'Preventive', icon: ShieldCheck, desc: 'Strengthen enamel and prevent cavities.', price: 'Consult for Pricing', duration: '15 mins' }
+const featuredServices = [
+  {
+    id: 'implants',
+    name: 'Dental Implants',
+    image: 'https://i.ibb.co/CyQST3G/Screenshot-2026-06-29-at-10-01-40-PM.png',
+    desc: 'Permanent solutions for missing teeth that look and feel completely natural.'
+  },
+  {
+    id: 'crowns',
+    name: 'Dental Crowns',
+    image: 'https://i.ibb.co/9HDDrgGq/Screenshot-2026-06-29-at-10-02-09-PM.png',
+    desc: 'High-quality crowns to protect damaged teeth.'
+  },
+  {
+    id: 'bridges',
+    name: 'Dental Bridges',
+    image: 'https://i.ibb.co/GfVvT6cR/Screenshot-2026-06-29-at-10-02-16-PM.png',
+    desc: 'Custom-fitted solutions for missing teeth.'
+  },
+  {
+    id: 'veneers',
+    name: 'Dental Venners',
+    image: 'https://i.ibb.co/nNDX9Jhb/Screenshot-2026-06-29-at-10-02-21-PM.png',
+    desc: 'Custom shells to restore tooth appearance and strength.'
+  },
+  {
+    id: 'dentures',
+    name: 'Dentures',
+    image: 'https://i.ibb.co/N0GpHc4/Screenshot-2026-06-29-at-10-02-31-PM.png',
+    desc: 'Complete care and fitting for dentures.'
+  },
+  {
+    id: 'gum-disease',
+    name: 'Gum Disease',
+    image: 'https://i.ibb.co/ZRmRyQsz/Screenshot-2026-06-29-at-10-02-41-PM.png',
+    desc: 'Specialized care for healthy gums.'
+  },
+  {
+    id: 'teeth-whitening',
+    name: 'Teeth Whitening',
+    image: 'https://i.ibb.co/4b7V1q7/Screenshot-2026-06-29-at-10-02-52-PM.png',
+    desc: 'Professional whitening for a brighter, confident smile.'
+  },
+  {
+    id: 'bone-crafting',
+    name: 'Bone Crafting',
+    image: 'https://i.ibb.co/FkW180Ln/Screenshot-2026-06-29-at-10-03-00-PM.png',
+    desc: 'Advanced bone grafting procedures to support implants.'
+  }
 ];
 
-const categories = ['All', 'General', 'Cosmetic', 'Restorative', 'Surgical', 'Orthodontic', 'Preventive'];
+const allServices = [
+  "Bonding",
+  "Check-ups",
+  "Cosmetic procedures",
+  "Dentures & bridges",
+  "Emergency care",
+  "Extractions",
+  "Fillings and sealants",
+  "Laser dentistry",
+  "Mouth guards",
+  "Online dentist booking",
+  "Oral surgery",
+  "Paediatrics",
+  "Root canals",
+  "Teeth cleaning",
+  "Teeth reshaping",
+  "X-ray",
+  "Cosmetic Dentistry",
+  "Dental Braces Treatment",
+  "Decayed Teeth Treatment",
+  "Bleeding Gum Treatment",
+  "Orthodontic Treatment",
+  "Dental Fluoride Treatment"
+];
 
 export default function AllServices() {
-  const [activeCategory, setActiveCategory] = useState('All');
-
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
-
-  const filteredServices = allServices.filter(service => 
-    activeCategory === 'All' ? true : service.category === activeCategory
-  );
 
   return (
     <div className="min-h-screen bg-[#ddebf0] font-sans text-[#0a5670]">
@@ -59,12 +97,12 @@ export default function AllServices() {
               </div>
               <span className="font-bold text-xs uppercase tracking-widest">Back to Home</span>
             </Link>
-            <div className="flex items-center gap-3">
-              <h1 className="font-bold text-lg leading-none text-[#0a5670]">
+            <Link to="/" className="flex items-center gap-3">
+              <h1 className="font-bold text-lg leading-none text-[#0a5670]" style={{ fontFamily: '"Times New Roman", Times, serif' }}>
                 Tooth Care<br/>
-                <span className="text-[10px] uppercase tracking-widest font-semibold opacity-70">Dental Clinic</span>
+                <span className="text-[10px] uppercase tracking-widest font-semibold opacity-70" style={{ fontFamily: '"Times New Roman", Times, serif' }}>Dental Clinic</span>
               </h1>
-            </div>
+            </Link>
           </div>
         </div>
       </nav>
@@ -81,62 +119,36 @@ export default function AllServices() {
             </p>
           </div>
 
-          <div className="flex flex-wrap justify-center gap-2 mb-12">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setActiveCategory(category)}
-                className={`px-6 py-2.5 rounded-full text-xs font-bold uppercase tracking-widest transition-all ${
-                  activeCategory === category 
-                    ? 'bg-[#0a5670] text-white shadow-lg' 
-                    : 'bg-white/50 backdrop-blur-md border border-white/60 shadow-sm text-[#0a5670]/70 hover:bg-white/80 hover:text-[#0a5670]'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
+          <div className="mb-16">
+            <h4 className="text-xl font-bold text-[#0a5670] mb-8 text-center" style={{ fontFamily: '"Times New Roman", Times, serif' }}>Featured Services</h4>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+              {featuredServices.map((service) => (
+                <div
+                  key={service.id}
+                  className="group bg-white rounded-3xl p-4 shadow-[0_8px_32px_rgba(0,0,0,0.04)] text-left hover:-translate-y-2 transition-transform duration-300 h-full flex flex-col"
+                >
+                  <img src={service.image} alt={service.name} className="w-full h-48 object-cover rounded-2xl mb-6" />
+                  <h4 className="text-xl font-bold text-[#0a5670] mb-2">{service.name}</h4>
+                  <p className="text-[#0a5670]/70 text-sm leading-relaxed mb-4 flex-grow">{service.desc}</p>
+                </div>
+              ))}
+            </div>
           </div>
 
-          <motion.div 
-            layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 gap-6"
-          >
-            <AnimatePresence mode="popLayout">
-              {filteredServices.map((service) => {
-                const Icon = service.icon;
-                return (
-                  <motion.div
-                    layout
-                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, y: 20 }}
-                    transition={{ duration: 0.3 }}
-                    key={service.id}
-                    className="group"
-                  >
-                    <div className="h-full bg-white/40 backdrop-blur-2xl p-8 rounded-[2rem] border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.04)] hover:bg-white/70 hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 cursor-pointer flex flex-col">
-                      <div className="w-14 h-14 bg-white/80 backdrop-blur-md rounded-[1rem] shadow-sm border border-white flex items-center justify-center text-[#0a5670] mb-6 transition-transform group-hover:scale-110 duration-300">
-                        <Icon className="w-6 h-6" />
-                      </div>
-                      
-                      <h4 className="text-base font-bold text-[#0a5670] mb-2">{service.name}</h4>
-                      <p className="text-[#0a5670]/70 text-xs mb-4 leading-relaxed flex-grow">{service.desc}</p>
-                      
-                      <div className="flex items-center justify-between mt-auto pt-4 border-t border-[#0a5670]/10">
-                        <div className="flex flex-col">
-                          <span className="text-[10px] text-[#0a5670]/50 uppercase font-bold tracking-widest mb-1">Time</span>
-                          <span className="font-semibold text-[#0a5670]">{service.duration}</span>
-                        </div>
-                        <button className="flex items-center justify-center w-8 h-8 rounded-full bg-[#0a5670] text-white opacity-0 group-hover:opacity-100 transition-opacity">
-                          <ChevronRight className="w-4 h-4" />
-                        </button>
-                      </div>
-                    </div>
-                  </motion.div>
-                );
-              })}
-            </AnimatePresence>
-          </motion.div>
+          <div>
+            <h4 className="text-xl font-bold text-[#0a5670] mb-8 text-center" style={{ fontFamily: '"Times New Roman", Times, serif' }}>Other Services</h4>
+            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4">
+              {allServices.map((service) => (
+                <div
+                  key={service}
+                  className="bg-white/40 backdrop-blur-md p-4 rounded-2xl border border-white/60 shadow-sm flex items-center gap-3 hover:bg-white/60 transition-colors"
+                >
+                  <CheckCircle2 className="w-5 h-5 text-[#0a5670]" />
+                  <span className="font-semibold text-[#0a5670]">{service}</span>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
       
@@ -144,3 +156,4 @@ export default function AllServices() {
     </div>
   );
 }
+

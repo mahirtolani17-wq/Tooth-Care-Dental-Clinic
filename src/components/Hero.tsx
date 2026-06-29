@@ -32,11 +32,11 @@ export default function Hero() {
               delay={0.8}
             />
 
-            <div className="flex flex-wrap items-center gap-4">
-              <a href="tel:+918460448731" className="bg-[#0a5670] text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#0a5670]/90 transition-colors shadow-lg hover:shadow-xl flex items-center gap-2 group">
+            <div className="flex flex-wrap items-center gap-4 relative">
+              <a href="tel:+918460448731" className="bg-[#0a5670] text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#0a5670]/90 transition-colors shadow-lg hover:shadow-xl flex items-center gap-2 group relative z-10">
                 Book Consultation <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </a>
-              <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/40 backdrop-blur-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.04)]">
+              <div className="flex items-center gap-3 px-6 py-3 rounded-full bg-white/40 backdrop-blur-2xl border border-white/50 shadow-[0_8px_32px_rgba(0,0,0,0.04)] relative z-10">
                 <div className="flex -space-x-2">
                   {[1,2,3].map(i => (
                     <div key={i} className="w-8 h-8 rounded-full bg-[#ddebf0] border-2 border-white flex items-center justify-center">
@@ -48,6 +48,12 @@ export default function Hero() {
                   <span className="text-[#0a5670] font-extrabold text-xs"><CountUp to={5.0} decimals={1} duration={2} /></span> (<CountUp to={149} duration={2.5} /> REVIEWS)
                 </p>
               </div>
+
+              <img 
+                src="https://i.ibb.co/Pvp7kycC/Screenshot-2026-06-27-at-2-46-02-PM-removebg-preview.png" 
+                alt="" 
+                className="absolute -bottom-16 sm:-bottom-24 left-1/2 sm:left-[60%] w-48 sm:w-64 opacity-[0.2] pointer-events-none z-0 mix-blend-multiply filter blur-[1px]"
+              />
             </div>
           </motion.div>
 

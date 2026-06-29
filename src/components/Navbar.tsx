@@ -18,7 +18,7 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'Services', href: '/services', isRoute: true },
-    { name: 'Dr. Modi', href: '#doctor' },
+    { name: 'Dr. Siddharth Modi', href: '#doctor' },
     { name: 'Reviews', href: '#testimonials' },
     { name: 'Contact', href: '#contact' },
   ];
@@ -30,13 +30,13 @@ export default function Navbar() {
     )}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center">
-          <div className="flex items-center gap-3">
-            <img src="https://i.ibb.co/4wHkW3nG/Screenshot-2026-06-27-at-2-46-02-PM.png" alt="Logo" className="h-10" />
-            <h1 className={cn("font-bold text-xl leading-none transition-colors", isScrolled ? "text-[#0a5670]" : "text-[#0a5670]")}>
+          <Link to="/" className="flex items-center gap-3">
+            <img src="https://i.ibb.co/Pvp7kycC/Screenshot-2026-06-27-at-2-46-02-PM-removebg-preview.png" alt="Logo" className="h-10" />
+            <h1 className={cn("font-bold text-[22px] leading-none transition-colors", isScrolled ? "text-[#0a5670]" : "text-[#0a5670]")} style={{ fontFamily: '"Times New Roman", Times, serif' }}>
               Tooth Care<br/>
-              <span className="text-[10px] uppercase tracking-widest font-semibold opacity-70">Dental Clinic</span>
+              <span className="text-[11px] uppercase tracking-widest font-semibold opacity-70" style={{ fontFamily: '"Times New Roman", Times, serif' }}>Dental Clinic</span>
             </h1>
-          </div>
+          </Link>
           
           <div className="hidden md:flex items-center gap-8">
             {navLinks.map((link) => (

@@ -66,9 +66,14 @@ export default function Testimonials() {
         </div>
 
         <div className="mt-16 text-center">
-          <button className="bg-white hover:bg-[#ddebf0] text-[#0a5670] px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest transition-all shadow-xl hover:shadow-2xl">
+          <a 
+            href="https://share.google/TcORsN2MPh7jTTbl6" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="inline-block bg-white hover:bg-[#ddebf0] text-[#0a5670] px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest transition-all shadow-xl hover:shadow-2xl"
+          >
             Read More Reviews
-          </button>
+          </a>
         </div>
       </div>
     </section>
