@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { MapPin, Phone, Clock } from 'lucide-react';
+import { TypingText } from './Animations';
 
 export default function Contact() {
   return (
@@ -8,19 +9,17 @@ export default function Contact() {
       <div className="absolute -top-40 -right-40 w-96 h-96 bg-[#ddebf0] rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-[#0a5670]/5 rounded-full mix-blend-multiply filter blur-3xl opacity-70"></div>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.8 }}
-          className="text-center max-w-3xl mx-auto mb-16"
-        >
+        <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-[#0a5670] text-[10px] font-bold uppercase tracking-widest mb-4">Get in Touch</h2>
-          <h3 className="text-4xl md:text-5xl font-bold text-[#0a5670] mb-6 tracking-tight">Book Your Appointment.</h3>
-          <p className="text-lg text-[#0a5670]/70 leading-relaxed">
-            We are ready to provide you with the best dental care. Call us or visit our clinic during working hours.
-          </p>
-        </motion.div>
+          <h3 className="text-4xl md:text-5xl font-bold text-[#0a5670] mb-6 tracking-tight flex flex-col gap-2 items-center justify-center">
+            <TypingText text="Book Your Appointment." delay={0.1} />
+          </h3>
+          <TypingText
+            text="We are ready to provide you with the best dental care. Call us or visit our clinic during working hours."
+            className="text-lg text-[#0a5670]/70 leading-relaxed"
+            delay={0.4}
+          />
+        </div>
 
         <div className="grid md:grid-cols-3 gap-8">
           <motion.a 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Award, BookOpen, Heart, Stethoscope, Instagram } from 'lucide-react';
+import { CountUp, TypingText } from './Animations';
 
 export default function DoctorProfile() {
   return (
@@ -54,7 +55,7 @@ export default function DoctorProfile() {
                 <Award className="w-6 h-6" />
               </div>
               <div>
-                <p className="text-xl font-bold text-[#0a5670]">10+ Years</p>
+                <p className="text-xl font-bold text-[#0a5670]"><CountUp to={10} duration={2} />+ Years</p>
                 <p className="text-[#0a5670]/70 text-xs font-bold uppercase tracking-widest">Experience</p>
               </div>
             </motion.div>
@@ -67,11 +68,16 @@ export default function DoctorProfile() {
             transition={{ duration: 0.8, delay: 0.2 }}
           >
             <h2 className="text-[#0a5670] text-[10px] font-bold uppercase tracking-widest mb-4">Meet Your Dentist</h2>
-            <h3 className="text-4xl md:text-5xl font-bold text-[#0a5670] mb-6 tracking-tight">Expert Care with a Humble Approach.</h3>
+            <h3 className="text-4xl md:text-5xl font-bold text-[#0a5670] mb-6 tracking-tight flex flex-col gap-2">
+              <TypingText text="Expert Care with" delay={0.1} />
+              <TypingText text="a Humble Approach." delay={0.4} />
+            </h3>
             
-            <p className="text-lg text-[#0a5670]/70 mb-10 leading-relaxed max-w-2xl">
-              Dr. Siddharth Modi (MDS) is renowned for his exceptional skill and humble demeanor. He believes in transparent communication, ensuring every patient fully understands their treatment options and costs without any hidden surprises.
-            </p>
+            <TypingText
+              text="Dr. Siddharth Modi (MDS) is renowned for his exceptional skill and humble demeanor. He believes in transparent communication, ensuring every patient fully understands their treatment options and costs without any hidden surprises."
+              className="text-lg text-[#0a5670]/70 mb-10 leading-relaxed max-w-2xl"
+              delay={0.6}
+            />
 
             <div className="grid sm:grid-cols-2 gap-8">
               <div className="flex gap-4 group">

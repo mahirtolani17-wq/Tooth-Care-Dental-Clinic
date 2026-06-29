@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'motion/react';
 import { ArrowRight, Sparkles, Stethoscope, Briefcase } from 'lucide-react';
+import { TypingText } from './Animations';
 
 export default function Services() {
   return (
@@ -11,10 +12,14 @@ export default function Services() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-[#0a5670] text-[10px] font-bold uppercase tracking-widest mb-4">Our Expertise</h2>
-          <h3 className="text-3xl md:text-4xl font-bold text-[#0a5670] mb-4">Comprehensive Dental Services</h3>
-          <p className="text-lg text-[#0a5670]/70 mb-10">
-            From routine check-ups to advanced surgical procedures, we provide full-spectrum dental care under one roof.
-          </p>
+          <h3 className="text-3xl md:text-4xl font-bold text-[#0a5670] mb-4 flex flex-col gap-2 items-center justify-center">
+            <TypingText text="Comprehensive Dental Services" delay={0.1} />
+          </h3>
+          <TypingText
+            text="From routine check-ups to advanced surgical procedures, we provide full-spectrum dental care under one roof."
+            className="text-lg text-[#0a5670]/70 mb-10"
+            delay={0.4}
+          />
           
           <Link to="/services" className="inline-flex items-center gap-2 bg-white/60 backdrop-blur-2xl border border-white/60 shadow-[0_8px_32px_rgba(0,0,0,0.08)] px-8 py-4 rounded-full text-sm font-bold uppercase tracking-widest text-[#0a5670] hover:bg-white/80 hover:shadow-[0_8px_32px_rgba(0,0,0,0.12)] hover:-translate-y-1 transition-all duration-300 group">
             View All Services

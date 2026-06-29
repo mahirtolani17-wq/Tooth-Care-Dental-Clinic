@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowRight, Star } from 'lucide-react';
+import { CountUp, TypingText } from './Animations';
 
 export default function Hero() {
   return (
@@ -20,14 +21,16 @@ export default function Hero() {
               <span className="text-[#0a5670] text-[10px] font-bold uppercase tracking-widest">Accepting New Patients</span>
             </div>
             
-            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0a5670] leading-[1.1] mb-6 tracking-tight">
-              Flawless smiles, <br className="hidden sm:block" />
-              crafted with precision.
+            <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[#0a5670] leading-[1.1] mb-6 tracking-tight flex flex-col gap-2">
+              <TypingText text="Flawless smiles," delay={0.2} />
+              <TypingText text="crafted with precision." delay={0.5} />
             </h1>
             
-            <p className="text-base sm:text-lg text-[#0a5670]/80 mb-10 max-w-xl leading-relaxed">
-              Experience world-class dental care at Tooth Care Dental Clinic, led by Dr. Siddharth Modi (MDS). We combine advanced technology with a serene, patient-first environment.
-            </p>
+            <TypingText 
+              text="Experience world-class dental care at Tooth Care Dental Clinic, led by Dr. Siddharth Modi (MDS). We combine advanced technology with a serene, patient-first environment."
+              className="text-base sm:text-lg text-[#0a5670]/80 mb-10 max-w-xl leading-relaxed"
+              delay={0.8}
+            />
 
             <div className="flex flex-wrap items-center gap-4">
               <a href="tel:+918460448731" className="bg-[#0a5670] text-white px-8 py-4 rounded-full text-xs font-bold uppercase tracking-widest hover:bg-[#0a5670]/90 transition-colors shadow-lg hover:shadow-xl flex items-center gap-2 group">
@@ -41,8 +44,8 @@ export default function Hero() {
                     </div>
                   ))}
                 </div>
-                <p className="text-[#0a5670]/70 text-[10px] font-bold uppercase tracking-widest">
-                  <span className="text-[#0a5670] font-extrabold text-xs">5.0</span> (149 REVIEWS)
+                <p className="text-[#0a5670]/70 text-[10px] font-bold uppercase tracking-widest flex items-center gap-1">
+                  <span className="text-[#0a5670] font-extrabold text-xs"><CountUp to={5.0} decimals={1} duration={2} /></span> (<CountUp to={149} duration={2.5} /> REVIEWS)
                 </p>
               </div>
             </div>

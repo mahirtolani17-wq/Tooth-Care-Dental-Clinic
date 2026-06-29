@@ -1,6 +1,7 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Star, Quote } from 'lucide-react';
+import { TypingText } from './Animations';
 
 const testimonials = [
   {
@@ -28,7 +29,10 @@ export default function Testimonials() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center max-w-3xl mx-auto mb-16">
           <h2 className="text-white/70 text-[10px] font-bold uppercase tracking-widest mb-4">Patient Stories</h2>
-          <h3 className="text-3xl md:text-4xl font-bold mb-4">Smiles that speak for themselves.</h3>
+          <h3 className="text-3xl md:text-4xl font-bold mb-4 flex flex-col gap-2 items-center justify-center">
+            <TypingText text="Smiles that speak" delay={0.1} />
+            <TypingText text="for themselves." delay={0.4} />
+          </h3>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
