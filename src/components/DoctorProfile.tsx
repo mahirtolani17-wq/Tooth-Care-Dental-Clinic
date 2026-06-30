@@ -23,9 +23,9 @@ export default function DoctorProfile() {
               className="relative aspect-[4/5] rounded-[3rem] overflow-hidden shadow-[0_8px_32px_rgba(0,0,0,0.1)] border border-white/60 p-3 bg-white/40 backdrop-blur-2xl"
             >
               <img 
-                src="https://i.ibb.co/rGCdxf68/Gemini-Generated-Image-4u5em94u5em94u5e.jpg" 
+                src="https://i.ibb.co/QFQjYLpk/PHOTO-2026-06-30-14-31-02.jpg" 
                 alt="Dr. Siddharth Modi" 
-                className="w-full h-full object-cover rounded-[2.5rem]"
+                className="w-full h-full object-cover object-top rounded-[2.5rem]"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0a5670]/80 via-transparent to-transparent rounded-[2.5rem] m-3"></div>
               
